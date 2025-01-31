@@ -1,5 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FaTemperatureHigh, FaWind } from "react-icons/fa";
+import "./WeatherCard.css";
 
 const WeatherCard = ({ weather }) => {
     const { name, main, weather: details, wind } = weather;
@@ -16,6 +18,23 @@ const WeatherCard = ({ weather }) => {
             </div>
         </div>
     );
+};
+
+WeatherCard.propTypes = {
+    weather: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        main: PropTypes.shape({
+            temp: PropTypes.number.isRequired,
+        }).isRequired,
+        weather: PropTypes.arrayOf(
+            PropTypes.shape({
+                description: PropTypes.string.isRequired,
+            })
+        ).isRequired,
+        wind: PropTypes.shape({
+            speed: PropTypes.number.isRequired,
+        }).isRequired,
+    }).isRequired,
 };
 
 export default WeatherCard;
