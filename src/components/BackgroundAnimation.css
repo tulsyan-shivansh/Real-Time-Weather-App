@@ -5,33 +5,27 @@
     width: 100%;
     height: 100%;
     z-index: -1;
-    transition: background-color 1s ease;
+    overflow: hidden;
+    transition: background-color 0.5s ease-in-out;
 }
 
 .background.sunny {
-    background: linear-gradient(to top, #ffb347, #ffcc33);
+    background-color: #87CEEB;
 }
 
 .background.rainy {
-    background: linear-gradient(to top, #3a6186, #89253e);
-    animation: rain 1s infinite;
+    background-color: #2F4F4F;
 }
 
 .background.cloudy {
-    background: linear-gradient(to top, #bdc3c7, #2c3e50);
+    background-color: #B0C4DE;
 }
 
-.background.default {
-    background: #74ebd5;
-}
-
-/* Animation example for rainy weather */
-@keyframes rain {
-    0% {
-        background-position: 0 0;
-    }
-
-    100% {
-        background-position: 100% 100%;
-    }
+.weather-animation {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
 }
